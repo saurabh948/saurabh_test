@@ -44,7 +44,7 @@ extension DiaryDetailViewController {
                 return
             }
             if let id  = self.diaryData?.id {
-                if self.titleTextField.text?.isEmpty ?? true || self.contentTextView.text.isEmpty {
+                if self.titleTextField.text?.trimmed.isEmpty ?? true || self.contentTextView.text.trimmed.isEmpty {
                     self.showAlert(title: "Data Required", message: "Please enter detail to save.")
                     return
                 }
