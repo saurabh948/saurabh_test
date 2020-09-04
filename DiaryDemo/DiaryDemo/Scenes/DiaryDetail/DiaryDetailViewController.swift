@@ -32,6 +32,7 @@ class DiaryDetailViewController: BaseViewController {
         }
         titleTextField.rx.text.orEmpty.bind(to: viewModel.title).disposed(by: disposeBag)
         contentTextView.rx.text.orEmpty.bind(to: viewModel.detail).disposed(by: disposeBag)
+        prepareTextFieldDelegate()
     }
 }
 
@@ -43,10 +44,26 @@ extension DiaryDetailViewController {
                 return
             }
             if let id  = self.diaryData?.id {
+                if self.titleTextField.text?.isEmpty ?? true || self.contentTextView.text.isEmpty {
+                    self.showAlert(title: "Data Required", message: "Please enter detail to save.")
+                    return
+                }
                 self.viewModel.saveData(for: id)
                 self.shouldRefresh?(true)
                 self.viewNavigator.moveBack()
             }
         }).disposed(by: disposeBag)
+    }
+}
+
+//MARK: - TextField Delegate
+extension DiaryDetailViewController {
+    private func prepareTextFieldDelegate() {
+        titleTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] in
+            guard let self = `self` else {
+                return
+            }
+            self.contentTextView.resignFirstResponder()
+        }).disposed(by: self.disposeBag)
     }
 }

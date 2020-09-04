@@ -39,12 +39,3 @@ struct DiaryData: Codable {
         }
     }
 }
-
-/*
- {
-     "id": "1",
-     "title": "Watch moive",
-     "content": "Today i watch a moive,and very happy",
-     "date": "2020-05-28T00:03:22.303Z"
- }
- */

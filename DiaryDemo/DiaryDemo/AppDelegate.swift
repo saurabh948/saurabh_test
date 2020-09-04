@@ -9,7 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setUpLibraries()
+        setUpLibraryData()
+        setUpNavBar()
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
@@ -27,24 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
     
-    // MARK: - Core Data Saving support
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
+    private func setUpNavBar() {
+        let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)
+        UINavigationBar.appearance().backIndicatorImage = backImage
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
+        //UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 0.0), for: .default)
     }
 }
 
 //MARK: - Library Setup
 extension AppDelegate {
-    private func setUpLibraries() {
+    /// All External Library setup will be done here
+    private func setUpLibraryData() {
         SVProgressHUD.setDefaultMaskType(.black)
     }
 }
-
