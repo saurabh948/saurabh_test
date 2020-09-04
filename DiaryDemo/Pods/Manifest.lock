@@ -11,12 +11,14 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire
   - RxCocoa
   - RxDataSources
   - RxSwift
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - RxDataSources
     - RxRelay
     - RxSwift
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
@@ -34,7 +37,8 @@ SPEC CHECKSUMS:
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c8ace572907d92cb72d0798f50cdb4e8b224cfe4
+PODFILE CHECKSUM: d089192c21076da8065bcd7173530b84bbb1c934
 
 COCOAPODS: 1.9.1

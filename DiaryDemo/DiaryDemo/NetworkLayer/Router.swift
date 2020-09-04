@@ -2,10 +2,6 @@
 import Foundation
 import Alamofire
 
-class Environment {
-    static let basePath = "https://private-ba0842-gary23.apiary-mock.com/"
-}
-
 protocol Routable {
     var path : String { get }
     var method : HTTPMethod { get }

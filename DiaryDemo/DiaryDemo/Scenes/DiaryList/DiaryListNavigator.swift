@@ -1,7 +1,7 @@
 
 import Foundation
 
-class DiaryListNavigator {
+final class DiaryListNavigator {
     //MARK: - Variables
     private let viewController: DiaryListViewController
     

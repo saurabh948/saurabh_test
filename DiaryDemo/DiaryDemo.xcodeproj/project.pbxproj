@@ -24,6 +24,8 @@
 		E3F2752A2501FC6A008512DC /* DiaryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F275292501FC6A008512DC /* DiaryListInteractor.swift */; };
 		E3F2752C2501FC76008512DC /* DiaryListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2752B2501FC76008512DC /* DiaryListNavigator.swift */; };
 		E3F2752F2501FE99008512DC /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2752E2501FE99008512DC /* DiaryData.swift */; };
+		E3F2753225020263008512DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2753125020263008512DC /* Extensions.swift */; };
+		E3F27534250203F1008512DC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F27533250203F1008512DC /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		E3F275292501FC6A008512DC /* DiaryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListInteractor.swift; sourceTree = "<group>"; };
 		E3F2752B2501FC76008512DC /* DiaryListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListNavigator.swift; sourceTree = "<group>"; };
 		E3F2752E2501FE99008512DC /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
+		E3F2753125020263008512DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E3F27533250203F1008512DC /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		E8372BA79C2983B06B574208 /* Pods-DiaryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryDemo.debug.xcconfig"; path = "Target Support Files/Pods-DiaryDemo/Pods-DiaryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +113,7 @@
 				E3F2750C2501F720008512DC /* Assets.xcassets */,
 				E3F2750E2501F720008512DC /* LaunchScreen.storyboard */,
 				E3F275092501F71C008512DC /* DiaryDemo.xcdatamodeld */,
+				E3F2753125020263008512DC /* Extensions.swift */,
 			);
 			path = DiaryDemo;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				E3F275182501F957008512DC /* Router.swift */,
 				E3F2751A2501F97C008512DC /* Webservice.swift */,
 				E3F2751C2501F99D008512DC /* WebError.swift */,
+				E3F27533250203F1008512DC /* Environment.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -135,6 +141,7 @@
 		E3F275232501FC03008512DC /* DiaryList */ = {
 			isa = PBXGroup;
 			children = (
+				E3F27530250200FF008512DC /* Views */,
 				E3F275292501FC6A008512DC /* DiaryListInteractor.swift */,
 				E3F2752B2501FC76008512DC /* DiaryListNavigator.swift */,
 				E3F275272501FC5E008512DC /* DiaryListViewModel.swift */,
@@ -159,6 +166,13 @@
 				E3F2752E2501FE99008512DC /* DiaryData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E3F27530250200FF008512DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +294,7 @@
 				E3F275192501F957008512DC /* Router.swift in Sources */,
 				E3F2750B2501F71C008512DC /* DiaryDemo.xcdatamodeld in Sources */,
 				E3F275052501F71C008512DC /* ViewController.swift in Sources */,
+				E3F27534250203F1008512DC /* Environment.swift in Sources */,
 				E3F2751D2501F99D008512DC /* WebError.swift in Sources */,
 				E3F2751B2501F97C008512DC /* Webservice.swift in Sources */,
 				E3F2752F2501FE99008512DC /* DiaryData.swift in Sources */,
@@ -289,6 +304,7 @@
 				E3F275262501FC4B008512DC /* DiaryListViewController.swift in Sources */,
 				E3F275012501F71C008512DC /* AppDelegate.swift in Sources */,
 				E3F2752C2501FC76008512DC /* DiaryListNavigator.swift in Sources */,
+				E3F2753225020263008512DC /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

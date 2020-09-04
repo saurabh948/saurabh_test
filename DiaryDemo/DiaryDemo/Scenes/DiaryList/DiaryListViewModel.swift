@@ -8,18 +8,22 @@ final class DiaryListViewModel: BaseViewModel {
     ///`State`
     var state = PublishSubject<ViewModelState<DiaryListViewModel>>()
     
+    //MARK: - Variables
+    var diaryList =  BehaviorRelay<[DiaryData]>(value: [])
+    
     //MARK: - API Call
     func getDiaryList() {
         state.onNext(.loading)
         
         DiaryListInteractor.fetchData(type: [DiaryData].self)
             .observeOn(SerialDispatchQueueScheduler(qos: .default))
-            .subscribe(onNext: { [weak self] (diaryList) in
+            .subscribe(onNext: { [weak self] (diaryResponse) in
                 
                 guard let `self` = self else { return }
                 
-                if diaryList.count > 0 {
-                    print(diaryList)
+                if diaryResponse.count > 0 {
+                    //print(diaryResponse)
+                    self.diaryList.accept(diaryResponse)
                     self.state.onNext(.success(self))
                     
                 } else {

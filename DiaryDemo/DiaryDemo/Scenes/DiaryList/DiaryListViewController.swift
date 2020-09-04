@@ -1,17 +1,52 @@
 
 import UIKit
 
-class DiaryListViewController: BaseViewController {
+final class DiaryListViewController: BaseViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet private weak var diaryListTableView: UITableView!
     
     //MARK: - Variables
     private var viewModel           = DiaryListViewModel()
     private lazy var viewNavigator  = DiaryListNavigator(self)
-
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareAPICall()
         viewModel.getDiaryList()
     }
+}
 
-
+//MARK: - API Call Handler
+extension DiaryListViewController {
+    private func prepareAPICall() {
+        viewModel.state.subscribe(onNext: { [weak self] state in
+            
+            guard let `self` = self else {
+                return
+            }
+            
+            switch state {
+            case .loading:
+                self.startLoading()
+                
+            case .failure(let error):
+                self.stopLoading()
+                
+                switch error {
+                case .noInternet:
+                    self.showAlert(title: "Network error", message: "Unable to contact the server")
+                    
+                default:
+                    self.showAlert(title: "Error occurred", message: "Failed to retrieve data from server")
+                }
+            case .success:
+                self.stopLoading()
+                
+            case .finish:
+                print("Finish")
+            }
+        }).disposed(by: disposeBag)
+    }
 }

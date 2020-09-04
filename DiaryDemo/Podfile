@@ -10,4 +10,5 @@ target 'DiaryDemo' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'SVProgressHUD'
 end
