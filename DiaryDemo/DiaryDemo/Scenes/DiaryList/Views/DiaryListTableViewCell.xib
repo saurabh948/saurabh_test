@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Regular.ttf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryListTableViewCell" id="KGk-i7-Jjw" customClass="DiaryListTableViewCell" customModule="DiaryDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="eVK-Ye-BOD">
+                        <rect key="frame" x="45" y="25" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="Kbn-t8-i4G"/>
+                            <constraint firstAttribute="height" constant="16" id="yl5-Dr-hgi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aL-Ci-VXo">
+                        <rect key="frame" x="69" y="24.5" width="40" height="17"/>
+                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                        <color key="textColor" red="0.45490196078431372" green="0.47450980392156861" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GEB-CK-lBQ">
+                        <rect key="frame" x="0.0" y="49" width="320" height="176"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6aL-Ci-VXo" firstAttribute="centerY" secondItem="eVK-Ye-BOD" secondAttribute="centerY" id="1aA-2s-mhv"/>
+                    <constraint firstItem="GEB-CK-lBQ" firstAttribute="top" secondItem="eVK-Ye-BOD" secondAttribute="bottom" constant="8" id="AXW-QQ-u8G"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6aL-Ci-VXo" secondAttribute="trailing" constant="25" id="BUp-E8-4s0"/>
+                    <constraint firstAttribute="bottom" secondItem="GEB-CK-lBQ" secondAttribute="bottom" constant="25" id="D0U-m0-vv4"/>
+                    <constraint firstItem="eVK-Ye-BOD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="KFZ-ZN-uYY"/>
+                    <constraint firstItem="eVK-Ye-BOD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="OKB-O8-WgO"/>
+                    <constraint firstItem="GEB-CK-lBQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Z3I-so-nrD"/>
+                    <constraint firstItem="6aL-Ci-VXo" firstAttribute="leading" secondItem="eVK-Ye-BOD" secondAttribute="trailing" constant="8" id="jKJ-UD-ZX0"/>
+                    <constraint firstAttribute="trailing" secondItem="GEB-CK-lBQ" secondAttribute="trailing" id="uFO-2x-mbJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="129" y="166"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="clock" width="21.5" height="21.5"/>
+    </resources>
+</document>

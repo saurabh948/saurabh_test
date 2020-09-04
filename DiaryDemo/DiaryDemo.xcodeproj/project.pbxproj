@@ -26,6 +26,22 @@
 		E3F2752F2501FE99008512DC /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2752E2501FE99008512DC /* DiaryData.swift */; };
 		E3F2753225020263008512DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2753125020263008512DC /* Extensions.swift */; };
 		E3F27534250203F1008512DC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F27533250203F1008512DC /* Environment.swift */; };
+		E3F275372502094A008512DC /* DiaryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F275352502094A008512DC /* DiaryListTableViewCell.swift */; };
+		E3F275382502094A008512DC /* DiaryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F275362502094A008512DC /* DiaryListTableViewCell.xib */; };
+		E3F2754725020EC3008512DC /* SFUIText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2753B25020EC3008512DC /* SFUIText-Light.ttf */; };
+		E3F2754825020EC3008512DC /* SFUIText-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2753C25020EC3008512DC /* SFUIText-HeavyItalic.ttf */; };
+		E3F2754925020EC3008512DC /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2753D25020EC3008512DC /* SFUIText-Semibold.ttf */; };
+		E3F2754A25020EC3008512DC /* SFUIText-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2753E25020EC3008512DC /* SFUIText-LightItalic.ttf */; };
+		E3F2754B25020EC3008512DC /* SFUIText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2753F25020EC3008512DC /* SFUIText-Bold.ttf */; };
+		E3F2754C25020EC3008512DC /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754025020EC3008512DC /* SFUIText-Heavy.ttf */; };
+		E3F2754D25020EC3008512DC /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754125020EC3008512DC /* SFUIText-Regular.ttf */; };
+		E3F2754E25020EC3008512DC /* SFUIText-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754225020EC3008512DC /* SFUIText-SemiboldItalic.ttf */; };
+		E3F2754F25020EC3008512DC /* SFUIText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754325020EC3008512DC /* SFUIText-BoldItalic.ttf */; };
+		E3F2755025020EC3008512DC /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754425020EC3008512DC /* SFUIText-Medium.ttf */; };
+		E3F2755125020EC3008512DC /* SFUIText-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754525020EC3008512DC /* SFUIText-MediumItalic.ttf */; };
+		E3F2755225020EC3008512DC /* SFUIText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754625020EC3008512DC /* SFUIText-RegularItalic.ttf */; };
+		E3F275542502107A008512DC /* DiaryDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F275532502107A008512DC /* DiaryDataView.swift */; };
+		E3F2755625021084008512DC /* DiaryDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F2755525021084008512DC /* DiaryDataView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +67,22 @@
 		E3F2752E2501FE99008512DC /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
 		E3F2753125020263008512DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E3F27533250203F1008512DC /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		E3F275352502094A008512DC /* DiaryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListTableViewCell.swift; sourceTree = "<group>"; };
+		E3F275362502094A008512DC /* DiaryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryListTableViewCell.xib; sourceTree = "<group>"; };
+		E3F2753B25020EC3008512DC /* SFUIText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Light.ttf"; sourceTree = "<group>"; };
+		E3F2753C25020EC3008512DC /* SFUIText-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		E3F2753D25020EC3008512DC /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		E3F2753E25020EC3008512DC /* SFUIText-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-LightItalic.ttf"; sourceTree = "<group>"; };
+		E3F2753F25020EC3008512DC /* SFUIText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Bold.ttf"; sourceTree = "<group>"; };
+		E3F2754025020EC3008512DC /* SFUIText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.ttf"; sourceTree = "<group>"; };
+		E3F2754125020EC3008512DC /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
+		E3F2754225020EC3008512DC /* SFUIText-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		E3F2754325020EC3008512DC /* SFUIText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E3F2754425020EC3008512DC /* SFUIText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.ttf"; sourceTree = "<group>"; };
+		E3F2754525020EC3008512DC /* SFUIText-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-MediumItalic.ttf"; sourceTree = "<group>"; };
+		E3F2754625020EC3008512DC /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
+		E3F275532502107A008512DC /* DiaryDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataView.swift; sourceTree = "<group>"; };
+		E3F2755525021084008512DC /* DiaryDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryDataView.xib; sourceTree = "<group>"; };
 		E8372BA79C2983B06B574208 /* Pods-DiaryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryDemo.debug.xcconfig"; path = "Target Support Files/Pods-DiaryDemo/Pods-DiaryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +142,7 @@
 				E3F275172501F919008512DC /* NetworkLayer */,
 				E3F2751E2501FB79008512DC /* Scenes */,
 				E3F275062501F71C008512DC /* Main.storyboard */,
-				E3F2750C2501F720008512DC /* Assets.xcassets */,
+				E3F2753925020E80008512DC /* Assets */,
 				E3F2750E2501F720008512DC /* LaunchScreen.storyboard */,
 				E3F275092501F71C008512DC /* DiaryDemo.xcdatamodeld */,
 				E3F2753125020263008512DC /* Extensions.swift */,
@@ -171,8 +203,40 @@
 		E3F27530250200FF008512DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E3F275352502094A008512DC /* DiaryListTableViewCell.swift */,
+				E3F275362502094A008512DC /* DiaryListTableViewCell.xib */,
+				E3F275532502107A008512DC /* DiaryDataView.swift */,
+				E3F2755525021084008512DC /* DiaryDataView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E3F2753925020E80008512DC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E3F2753A25020E8B008512DC /* Fonts */,
+				E3F2750C2501F720008512DC /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E3F2753A25020E8B008512DC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E3F2753F25020EC3008512DC /* SFUIText-Bold.ttf */,
+				E3F2754325020EC3008512DC /* SFUIText-BoldItalic.ttf */,
+				E3F2754025020EC3008512DC /* SFUIText-Heavy.ttf */,
+				E3F2753C25020EC3008512DC /* SFUIText-HeavyItalic.ttf */,
+				E3F2753B25020EC3008512DC /* SFUIText-Light.ttf */,
+				E3F2753E25020EC3008512DC /* SFUIText-LightItalic.ttf */,
+				E3F2754425020EC3008512DC /* SFUIText-Medium.ttf */,
+				E3F2754525020EC3008512DC /* SFUIText-MediumItalic.ttf */,
+				E3F2754125020EC3008512DC /* SFUIText-Regular.ttf */,
+				E3F2754625020EC3008512DC /* SFUIText-RegularItalic.ttf */,
+				E3F2753D25020EC3008512DC /* SFUIText-Semibold.ttf */,
+				E3F2754225020EC3008512DC /* SFUIText-SemiboldItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +299,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3F2755125020EC3008512DC /* SFUIText-MediumItalic.ttf in Resources */,
+				E3F2754825020EC3008512DC /* SFUIText-HeavyItalic.ttf in Resources */,
+				E3F2754725020EC3008512DC /* SFUIText-Light.ttf in Resources */,
 				E3F275102501F720008512DC /* LaunchScreen.storyboard in Resources */,
+				E3F2754A25020EC3008512DC /* SFUIText-LightItalic.ttf in Resources */,
+				E3F2754C25020EC3008512DC /* SFUIText-Heavy.ttf in Resources */,
 				E3F2750D2501F720008512DC /* Assets.xcassets in Resources */,
+				E3F2755225020EC3008512DC /* SFUIText-RegularItalic.ttf in Resources */,
 				E3F275082501F71C008512DC /* Main.storyboard in Resources */,
+				E3F2754D25020EC3008512DC /* SFUIText-Regular.ttf in Resources */,
+				E3F2755625021084008512DC /* DiaryDataView.xib in Resources */,
+				E3F2754925020EC3008512DC /* SFUIText-Semibold.ttf in Resources */,
+				E3F2754F25020EC3008512DC /* SFUIText-BoldItalic.ttf in Resources */,
+				E3F2754E25020EC3008512DC /* SFUIText-SemiboldItalic.ttf in Resources */,
+				E3F2755025020EC3008512DC /* SFUIText-Medium.ttf in Resources */,
+				E3F275382502094A008512DC /* DiaryListTableViewCell.xib in Resources */,
+				E3F2754B25020EC3008512DC /* SFUIText-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +382,9 @@
 				E3F275262501FC4B008512DC /* DiaryListViewController.swift in Sources */,
 				E3F275012501F71C008512DC /* AppDelegate.swift in Sources */,
 				E3F2752C2501FC76008512DC /* DiaryListNavigator.swift in Sources */,
+				E3F275542502107A008512DC /* DiaryDataView.swift in Sources */,
 				E3F2753225020263008512DC /* Extensions.swift in Sources */,
+				E3F275372502094A008512DC /* DiaryListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

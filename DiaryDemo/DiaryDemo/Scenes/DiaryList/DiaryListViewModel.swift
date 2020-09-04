@@ -3,6 +3,30 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum DiaryType {
+    case today
+    case yesterday
+    case old
+    
+    func dayDifference(from date : Date) -> DiaryType {
+        let calendar = Calendar.current
+        let startOfNow = calendar.startOfDay(for: Date())
+        let startOfTimeStamp = calendar.startOfDay(for: date)
+        let components = calendar.dateComponents([.day], from: startOfTimeStamp, to: startOfNow)
+        let day = components.day ?? 0
+        
+        if abs(day) < 1 {
+            return .today
+            
+        } else if day == 1 {
+            return .yesterday
+            
+        } else {
+            return .old
+        }
+    }
+}
+
 final class DiaryListViewModel: BaseViewModel {
     
     ///`State`

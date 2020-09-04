@@ -2,9 +2,10 @@
 import UIKit
 import SVProgressHUD
 
+//MARK: - UIViewController
 extension UIViewController {
     
-    //MARK: - Activity Indicator
+    ///`Activity Indicator`
     func startLoading() {
         SVProgressHUD.show()
     }
@@ -12,6 +13,7 @@ extension UIViewController {
         SVProgressHUD.dismiss()
     }
     
+    ///`Show Alert`
     /// Helper method to display an alert on any UIViewController subclass. Uses UIAlertController to show an alert
     ///
     /// - Parameters:
@@ -48,5 +50,70 @@ extension UIViewController {
         }
         present(alertController, animated: true, completion: nil)
         return alertController
+    }
+}
+
+//MARK: - UITableView
+extension UITableView {
+    ///`Register And Return Cell`
+    func registerAndGet<T:UITableViewCell>(cell identifier:T.Type) -> T?{
+        let cellID = String(describing: identifier)
+        
+        if let cell = self.dequeueReusableCell(withIdentifier: cellID) as? T {
+            return cell
+        } else {
+            //regiser
+            self.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
+            return self.dequeueReusableCell(withIdentifier: cellID) as? T
+            
+        }
+    }
+}
+
+//MARK: - UIView
+extension UIView {
+    ///`CornerRadius`
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+    ///`Add Shadow`
+    func dropShadow() {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        layer.shadowOpacity = 1.0
+        layer.shadowOffset =  CGSize(width: 0.0, height: 4.0)
+        layer.shadowRadius = 2.0
+    }
+}
+
+//MARK: - DateFormatter
+let DateManager = DateFormatter.AppDateFormatters()
+extension DateFormatter {
+    struct AppDateFormatters {
+        let dateStyleServerDate = DateFormats.getDateFormatter(dateFormat: .dateStyleServerDate)
+    }
+    
+    private enum DateFormats : String {
+        case dateStyleServerDate = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        static func dateFormat(dateFormatter: DateFormats)-> String{
+            return dateFormatter.rawValue
+        }
+        static func dateFormatType(format: String)-> DateFormats{
+            return DateFormats.init(rawValue: format)!
+        }
+        static func getDateFormatter(dateFormat: DateFormats, withIsUtc isUtc: Bool = false)-> DateFormatter {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat.rawValue
+            if isUtc { dateFormatter.timeZone = TimeZone(abbreviation: "UTC") }
+            return dateFormatter;
+        }
     }
 }
