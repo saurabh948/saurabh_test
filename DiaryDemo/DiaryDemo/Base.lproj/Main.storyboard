@@ -10,6 +10,9 @@
         <array key="SFUIText-Bold.ttf">
             <string>SFUIText-Bold</string>
         </array>
+        <array key="SFUIText-MediumItalic.ttf">
+            <string>SFUIText-MediumItalic</string>
+        </array>
         <array key="SFUIText-Regular.ttf">
             <string>SFUIText-Regular</string>
         </array>
@@ -40,10 +43,50 @@
                     <navigationItem key="navigationItem" title="My Diary" id="2cZ-Bi-Rsp"/>
                     <connections>
                         <outlet property="diaryListTableView" destination="ScS-9c-h8v" id="0Dr-Lw-SJj"/>
+                        <outlet property="fetchDataButton" destination="MaK-uX-Pha" id="2xz-WX-ceG"/>
+                        <outlet property="noDataView" destination="pc3-Xg-M0b" id="865-kF-dGD"/>
                         <segue destination="kci-iF-33S" kind="show" identifier="pushDetailVc" id="9TR-TM-oiJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="pc3-Xg-M0b">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data found!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3a-yJ-Xyn">
+                            <rect key="frame" x="127" y="50" width="121.5" height="78"/>
+                            <fontDescription key="fontDescription" name="SFUIText-MediumItalic" family="SF UI Text" pointSize="16"/>
+                            <color key="textColor" red="0.60784313729999995" green="0.61960784310000006" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaK-uX-Pha">
+                            <rect key="frame" x="24" y="178" width="327" height="48"/>
+                            <color key="backgroundColor" red="0.2666666667" green="0.12941176469999999" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="se6-Pi-AUd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="12"/>
+                            <state key="normal" title="Fetch Data">
+                                <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="c5N-Js-tbw" firstAttribute="bottom" secondItem="MaK-uX-Pha" secondAttribute="bottom" constant="24" id="Gfw-Ur-xe7"/>
+                        <constraint firstItem="MaK-uX-Pha" firstAttribute="top" secondItem="k3a-yJ-Xyn" secondAttribute="bottom" constant="50" id="MQ3-88-NSB"/>
+                        <constraint firstItem="c5N-Js-tbw" firstAttribute="trailing" secondItem="MaK-uX-Pha" secondAttribute="trailing" constant="24" id="Pxm-Gq-YgB"/>
+                        <constraint firstItem="MaK-uX-Pha" firstAttribute="leading" secondItem="c5N-Js-tbw" secondAttribute="leading" constant="24" id="oIZ-es-xQh"/>
+                        <constraint firstItem="k3a-yJ-Xyn" firstAttribute="top" secondItem="c5N-Js-tbw" secondAttribute="top" constant="50" id="plT-pG-3Pl"/>
+                        <constraint firstItem="k3a-yJ-Xyn" firstAttribute="centerX" secondItem="c5N-Js-tbw" secondAttribute="centerX" id="tfy-fA-WbB"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="c5N-Js-tbw"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
         </scene>

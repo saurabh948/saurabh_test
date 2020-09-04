@@ -9,6 +9,14 @@ final class DiaryListViewModel: BaseViewModel {
     var state = PublishSubject<ViewModelState<DiaryListViewModel>>()
     
     //MARK: - Variables
+    private let viewController: DiaryListViewController
+    
+    ///`Setup`
+    init(_ viewController: DiaryListViewController) {
+        self.viewController = viewController
+    }
+    
+    //MARK: - Variables
     var diaryList           =  [DiaryData]()
     var formatedDiaryList   =  BehaviorRelay<[DiaryGroup]>(value: [])
     
@@ -50,7 +58,7 @@ final class DiaryListViewModel: BaseViewModel {
 
 //MARK: - DB Methods
 extension DiaryListViewModel {
-    func fetchDataFromDB() {
+    func fetchDataFromDB(_ isLocalRefresh: Bool = false) {
         DBManager.shared.fetchQuery(entity: DataEntity.diaryData.rawValue) { (objs) in
             let fetchedData = objs.reduce(into: [DiaryData]()) { (result, data) in
                 result.append(DiaryData(data: data))
@@ -60,7 +68,12 @@ extension DiaryListViewModel {
                 formatDiaryData(fetchedData)
                 
             } else {
-                getDiaryList()
+                if !isLocalRefresh {
+                    getDiaryList()
+                } else {
+                    viewController.addNodataView()
+                    formatedDiaryList.accept([])
+                }
             }
         }
     }
@@ -73,7 +86,7 @@ extension DiaryListViewModel {
     
     func deleteDiary(for id : String) {
         DBManager.shared.deleteDiaryById(for: id)
-        fetchDataFromDB()
+        fetchDataFromDB(true)
     }
 }
 

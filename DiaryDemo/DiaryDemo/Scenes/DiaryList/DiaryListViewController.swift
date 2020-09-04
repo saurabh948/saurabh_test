@@ -4,10 +4,12 @@ import UIKit
 final class DiaryListViewController: BaseViewController {
     
     //MARK: - Outlets
-    @IBOutlet private weak var diaryListTableView: UITableView!
+    @IBOutlet private weak var diaryListTableView   : UITableView!
+    @IBOutlet private weak var noDataView           : UIView!
+    @IBOutlet private weak var fetchDataButton      : UIButton!
     
     //MARK: - Variables
-    private var viewModel           = DiaryListViewModel()
+    private lazy var viewModel      = DiaryListViewModel(self)
     private lazy var viewNavigator  = DiaryListNavigator(self)
     
     //MARK: - LifeCycle
@@ -16,6 +18,17 @@ final class DiaryListViewController: BaseViewController {
         handleTableData()
         prepareAPICall()
         viewModel.fetchDataFromDB()
+    }
+    
+    //MARK: - Helper Methods
+    func addNodataView() {
+        diaryListTableView.tableHeaderView = noDataView
+        fetchDataButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = `self` else {
+                return
+            }
+            self.viewModel.fetchDataFromDB()
+        }).disposed(by: disposeBag)
     }
 }
 
@@ -43,6 +56,9 @@ extension DiaryListViewController {
                     self.showAlert(title: "Error occurred", message: "Failed to retrieve data from server")
                 }
             case .success:
+                DispatchQueue.main.async {
+                    self.diaryListTableView.tableHeaderView = nil
+                }
                 self.stopLoading()
                 
             case .finish:
