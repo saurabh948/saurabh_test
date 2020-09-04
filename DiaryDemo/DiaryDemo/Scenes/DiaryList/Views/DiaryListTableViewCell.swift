@@ -34,8 +34,12 @@ class DiaryListTableViewCell: UITableViewCell {
         let diaryView = DiaryDataView().getXIB(type: DiaryDataView.self)
         diaryView.diaryDetail   = data
         diaryView.diaryType     = diaryDataObj.type
-        diaryView.editTap       = editTap
-        diaryView.deleteTap     = deleteTap
+        diaryView.editTap       = { id in
+            self.editTap?(id)
+        }
+        diaryView.deleteTap     = { id in
+            self.deleteTap?(id)
+        }
         diariesStackView.addArrangedSubview(diaryView)
     }
 }

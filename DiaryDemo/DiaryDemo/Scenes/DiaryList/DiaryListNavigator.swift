@@ -9,4 +9,7 @@ final class DiaryListNavigator {
     init(_ viewController: DiaryListViewController) {
         self.viewController = viewController
     }
+    func moveToCreateAcccont(with data: DiaryData) {
+        viewController.performSegue(withIdentifier: "pushDetailVc", sender: data)
+    }
 }

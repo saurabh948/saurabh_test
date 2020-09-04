@@ -39,9 +39,6 @@
                             <state key="normal" title="E D I T">
                                 <color key="titleColor" red="0.26666666666666666" green="0.12941176470588234" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="didTapOnEdit:" destination="iN0-l3-epB" eventType="touchUpInside" id="BxP-Lc-20L"/>
-                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZh-Pz-qry">
                             <rect key="frame" x="20" y="66" width="285" height="50.5"/>
@@ -95,9 +92,6 @@
                             <real key="value" value="13"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="didTapOnDelete:" destination="iN0-l3-epB" eventType="touchUpInside" id="HNa-mQ-zA2"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -117,8 +111,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="bgView" destination="JOA-9Q-bH8" id="Fg4-sW-WgS"/>
+                <outlet property="deleteButton" destination="OAI-ga-8pW" id="Snr-Ds-NZu"/>
                 <outlet property="detailLabel" destination="gZh-Pz-qry" id="VtJ-CI-X03"/>
                 <outlet property="diaryTimeLabel" destination="F6k-b7-cay" id="gNd-9O-v2N"/>
+                <outlet property="editButton" destination="zJ4-aR-KVr" id="1JK-ar-Z85"/>
                 <outlet property="titleLabel" destination="iSD-xt-tnD" id="oUF-tf-9lh"/>
             </connections>
             <point key="canvasLocation" x="133" y="154"/>

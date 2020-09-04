@@ -9,11 +9,11 @@ final class DiaryListViewModel: BaseViewModel {
     var state = PublishSubject<ViewModelState<DiaryListViewModel>>()
     
     //MARK: - Variables
-    private var diaryList   =  [DiaryData]()
+    var diaryList           =  [DiaryData]()
     var formatedDiaryList   =  BehaviorRelay<[DiaryGroup]>(value: [])
     
     //MARK: - API Call
-    func getDiaryList() {
+    private func getDiaryList() {
         state.onNext(.loading)
         
         DiaryListInteractor.fetchData(type: [DiaryData].self)
@@ -26,6 +26,8 @@ final class DiaryListViewModel: BaseViewModel {
                     //print(diaryResponse)
                     self.diaryList = diaryResponse
                     self.formatDiaryData(diaryResponse)
+                    DBManager.shared.deleteEntity(DataEntity.diaryData.rawValue)
+                    self.addDataToDB(diaryResponse)
                     self.state.onNext(.success(self))
                     
                 } else {
@@ -44,6 +46,35 @@ final class DiaryListViewModel: BaseViewModel {
             }).disposed(by: disposeBag)
     }
     
+}
+
+//MARK: - DB Methods
+extension DiaryListViewModel {
+    func fetchDataFromDB() {
+        DBManager.shared.fetchQuery(entity: DataEntity.diaryData.rawValue) { (objs) in
+            let fetchedData = objs.reduce(into: [DiaryData]()) { (result, data) in
+                result.append(DiaryData(data: data))
+            }
+            if fetchedData.count > 0 {
+                diaryList = fetchedData
+                formatDiaryData(fetchedData)
+                
+            } else {
+                getDiaryList()
+            }
+        }
+    }
+    
+    private func addDataToDB(_ diaryDataArray: [DiaryData]) {
+        for obj in diaryDataArray {
+            DBManager.shared.AddDiaryData(diaryData: obj)
+        }
+    }
+    
+    func deleteDiary(for id : String) {
+        DBManager.shared.deleteDiaryById(for: id)
+        fetchDataFromDB()
+    }
 }
 
 //MARK: - Helper Methods

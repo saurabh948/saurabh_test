@@ -1,5 +1,7 @@
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class DiaryDataView: UIView {
     
@@ -8,14 +10,20 @@ class DiaryDataView: UIView {
     @IBOutlet private weak var titleLabel       : UILabel!
     @IBOutlet private weak var detailLabel      : UILabel!
     @IBOutlet private weak var diaryTimeLabel   : UILabel!
+    @IBOutlet private weak var editButton       : UIButton!
+    @IBOutlet private weak var deleteButton     : UIButton!
     
     //MARK: - Callbacks
     var editTap:((String) -> Void)?
     var deleteTap:((String) -> Void)?
     
+    //MARK: - Variables
+    var disposeBag = DisposeBag()
+    
     //MARK: - Property Observers
     var diaryDetail : DiaryData! {
         didSet {
+            prapareActionMethods()
             titleLabel.text = diaryDetail.title
             detailLabel.text = diaryDetail.content
             DispatchQueue.main.async {
@@ -40,11 +48,20 @@ class DiaryDataView: UIView {
     }
     
     //MARK: - Action Methods
-    @IBAction private func didTapOnEdit(_ sender: UIButton) {
-        editTap?(diaryDetail.id ?? "")
-    }
-    @IBAction private func didTapOnDelete(_ sender: UIButton) {
-        deleteTap?(diaryDetail.id ?? "")
+    private func prapareActionMethods() {
+        editButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = `self` else {
+                return
+            }
+            self.editTap?(self.diaryDetail.id ?? "")
+        }).disposed(by: disposeBag)
+        
+        deleteButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = `self` else {
+                return
+            }
+            self.deleteTap?(self.diaryDetail.id ?? "")
+        }).disposed(by: disposeBag)
     }
     
     //MARK: - Helper Methods

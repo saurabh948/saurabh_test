@@ -1,5 +1,6 @@
 
 import Foundation
+import CoreData
 
 struct DiaryData: Codable {
     let id      : String?
@@ -21,6 +22,17 @@ struct DiaryData: Codable {
         title   = try values.decodeIfPresent(String.self, forKey: .title)
         content = try values.decodeIfPresent(String.self, forKey: .content)
         dateStr = try values.decodeIfPresent(String.self, forKey: .dateStr)
+        
+        if let dateString = dateStr {
+            date = DateManager.dateStyleServerDate.date(from: dateString)
+        }
+    }
+    
+    init(data: NSManagedObject) {
+        id      = data.value(forKey: "id") as? String
+        title   = data.value(forKey: "title") as? String
+        content = data.value(forKey: "content") as? String
+        dateStr = data.value(forKey: "dateStr") as? String
         
         if let dateString = dateStr {
             date = DateManager.dateStyleServerDate.date(from: dateString)

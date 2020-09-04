@@ -15,7 +15,7 @@ final class DiaryListViewController: BaseViewController {
         super.viewDidLoad()
         handleTableData()
         prepareAPICall()
-        viewModel.getDiaryList()
+        viewModel.fetchDataFromDB()
     }
 }
 
@@ -58,8 +58,32 @@ extension DiaryListViewController {
         viewModel.formatedDiaryList.bind(to: diaryListTableView.rx.items){ (tableView, row, item) -> UITableViewCell in
             let cell = tableView.registerAndGet(cell: DiaryListTableViewCell.self)!
             cell.diaryDataObj = item
+            cell.editTap = { id in
+                if let obj = self.viewModel.diaryList.first(where: {$0.id == id}) {
+                    self.viewNavigator.moveToCreateAcccont(with : obj)
+                }
+            }
+            cell.deleteTap = { id in
+                self.viewModel.deleteDiary(for: id)
+            }
             return cell
         }.disposed(by: disposeBag)
     }
 }
 
+//MARK: - Navigation
+extension DiaryListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushDetailVc" {
+            if let detailVc = segue.destination as? DiaryDetailViewController,
+                let diaryData = sender as? DiaryData {
+                detailVc.diaryData = diaryData
+                detailVc.shouldRefresh = { result in
+                    if result {
+                        self.viewModel.fetchDataFromDB()
+                    }
+                }
+            }
+        }
+    }
+}

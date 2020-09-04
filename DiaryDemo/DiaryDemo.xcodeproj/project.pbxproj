@@ -43,6 +43,10 @@
 		E3F275542502107A008512DC /* DiaryDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F275532502107A008512DC /* DiaryDataView.swift */; };
 		E3F2755625021084008512DC /* DiaryDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F2755525021084008512DC /* DiaryDataView.xib */; };
 		E3F2755825022BEA008512DC /* DiaryWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2755725022BEA008512DC /* DiaryWrappers.swift */; };
+		E3F2755B2502446A008512DC /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2755A2502446A008512DC /* DiaryDetailViewController.swift */; };
+		E3F2755D2502454F008512DC /* DiaryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2755C2502454F008512DC /* DiaryDetailViewModel.swift */; };
+		E3F2755F250245BD008512DC /* DiaryDetailViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2755E250245BD008512DC /* DiaryDetailViewNavigator.swift */; };
+		E3F2756225024AAB008512DC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2756125024AAB008512DC /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +89,10 @@
 		E3F275532502107A008512DC /* DiaryDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataView.swift; sourceTree = "<group>"; };
 		E3F2755525021084008512DC /* DiaryDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryDataView.xib; sourceTree = "<group>"; };
 		E3F2755725022BEA008512DC /* DiaryWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryWrappers.swift; sourceTree = "<group>"; };
+		E3F2755A2502446A008512DC /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
+		E3F2755C2502454F008512DC /* DiaryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewModel.swift; sourceTree = "<group>"; };
+		E3F2755E250245BD008512DC /* DiaryDetailViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewNavigator.swift; sourceTree = "<group>"; };
+		E3F2756125024AAB008512DC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		E8372BA79C2983B06B574208 /* Pods-DiaryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryDemo.debug.xcconfig"; path = "Target Support Files/Pods-DiaryDemo/Pods-DiaryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,13 +148,13 @@
 			children = (
 				E3F275112501F720008512DC /* Info.plist */,
 				E3F275002501F71C008512DC /* AppDelegate.swift */,
+				E3F2753925020E80008512DC /* Assets */,
 				E3F2752D2501FDEE008512DC /* Models */,
 				E3F275172501F919008512DC /* NetworkLayer */,
 				E3F2751E2501FB79008512DC /* Scenes */,
 				E3F275062501F71C008512DC /* Main.storyboard */,
-				E3F2753925020E80008512DC /* Assets */,
 				E3F2750E2501F720008512DC /* LaunchScreen.storyboard */,
-				E3F275092501F71C008512DC /* DiaryDemo.xcdatamodeld */,
+				E3F2756025024A94008512DC /* CoreData */,
 				E3F2753125020263008512DC /* Extensions.swift */,
 			);
 			path = DiaryDemo;
@@ -168,6 +176,7 @@
 			children = (
 				E3F275242501FC19008512DC /* Base */,
 				E3F275232501FC03008512DC /* DiaryList */,
+				E3F2755925023EA2008512DC /* DiaryDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -240,6 +249,25 @@
 				E3F2754225020EC3008512DC /* SFUIText-SemiboldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E3F2755925023EA2008512DC /* DiaryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E3F2755E250245BD008512DC /* DiaryDetailViewNavigator.swift */,
+				E3F2755C2502454F008512DC /* DiaryDetailViewModel.swift */,
+				E3F2755A2502446A008512DC /* DiaryDetailViewController.swift */,
+			);
+			path = DiaryDetail;
+			sourceTree = "<group>";
+		};
+		E3F2756025024A94008512DC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E3F275092501F71C008512DC /* DiaryDemo.xcdatamodeld */,
+				E3F2756125024AAB008512DC /* DBManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +404,7 @@
 				E3F2750B2501F71C008512DC /* DiaryDemo.xcdatamodeld in Sources */,
 				E3F275052501F71C008512DC /* ViewController.swift in Sources */,
 				E3F27534250203F1008512DC /* Environment.swift in Sources */,
+				E3F2755D2502454F008512DC /* DiaryDetailViewModel.swift in Sources */,
 				E3F2755825022BEA008512DC /* DiaryWrappers.swift in Sources */,
 				E3F2751D2501F99D008512DC /* WebError.swift in Sources */,
 				E3F2751B2501F97C008512DC /* Webservice.swift in Sources */,
@@ -385,10 +414,13 @@
 				E3F275202501FB9C008512DC /* BaseViewController.swift in Sources */,
 				E3F275262501FC4B008512DC /* DiaryListViewController.swift in Sources */,
 				E3F275012501F71C008512DC /* AppDelegate.swift in Sources */,
+				E3F2755B2502446A008512DC /* DiaryDetailViewController.swift in Sources */,
 				E3F2752C2501FC76008512DC /* DiaryListNavigator.swift in Sources */,
+				E3F2755F250245BD008512DC /* DiaryDetailViewNavigator.swift in Sources */,
 				E3F275542502107A008512DC /* DiaryDataView.swift in Sources */,
 				E3F2753225020263008512DC /* Extensions.swift in Sources */,
 				E3F275372502094A008512DC /* DiaryListTableViewCell.swift in Sources */,
+				E3F2756225024AAB008512DC /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tatva.DiaryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -562,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tatva.DiaryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
