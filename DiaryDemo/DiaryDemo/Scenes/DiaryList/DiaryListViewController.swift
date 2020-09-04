@@ -47,13 +47,14 @@ extension DiaryListViewController {
                 
             case .failure(let error):
                 self.stopLoading()
-                
-                switch error {
-                case .noInternet:
-                    self.showAlert(title: "Network error", message: "Unable to contact the server")
-                    
-                default:
-                    self.showAlert(title: "Error occurred", message: "Failed to retrieve data from server")
+                DispatchQueue.main.async {
+                    switch error {
+                    case .noInternet:
+                        self.showAlert(title: "Network error", message: "Unable to contact the server")
+                        
+                    default:
+                        self.showAlert(title: "Error occurred", message: "Failed to retrieve data from server")
+                    }
                 }
             case .success:
                 DispatchQueue.main.async {
