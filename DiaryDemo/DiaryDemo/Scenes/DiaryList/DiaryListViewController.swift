@@ -13,6 +13,7 @@ final class DiaryListViewController: BaseViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleTableData()
         prepareAPICall()
         viewModel.getDiaryList()
     }
@@ -54,19 +55,11 @@ extension DiaryListViewController {
 //MARK: - TableView Delegate and DataSource
 extension DiaryListViewController {
     private func handleTableData() {
-        viewModel.diaryList.bind(to: diaryListTableView.rx.items){ (tableView, row, item) -> UITableViewCell in
+        viewModel.formatedDiaryList.bind(to: diaryListTableView.rx.items){ (tableView, row, item) -> UITableViewCell in
             let cell = tableView.registerAndGet(cell: DiaryListTableViewCell.self)!
+            cell.diaryDataObj = item
             return cell
         }.disposed(by: disposeBag)
-        
-        //DidSelect
-        diaryListTableView.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] (indexPath) in
-            guard let self = `self` else {
-                return
-            }
-            let num = self.viewModel.diaryList.value[indexPath.row]
-            print(num)
-        }).disposed(by: self.disposeBag)
     }
 }
 

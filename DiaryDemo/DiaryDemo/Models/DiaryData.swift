@@ -5,13 +5,14 @@ struct DiaryData: Codable {
     let id      : String?
     let title   : String?
     let content : String?
-    let date    : String?
+    let dateStr : String?
+    var date    : Date?
     
     enum CodingKeys: String, CodingKey {
         case id         = "id"
         case title      = "title"
         case content    = "content"
-        case date       = "date"
+        case dateStr    = "date"
     }
     
     init(from decoder: Decoder) throws {
@@ -19,7 +20,11 @@ struct DiaryData: Codable {
         id      = try values.decodeIfPresent(String.self, forKey: .id)
         title   = try values.decodeIfPresent(String.self, forKey: .title)
         content = try values.decodeIfPresent(String.self, forKey: .content)
-        date    = try values.decodeIfPresent(String.self, forKey: .date)
+        dateStr = try values.decodeIfPresent(String.self, forKey: .dateStr)
+        
+        if let dateString = dateStr {
+            date = DateManager.dateStyleServerDate.date(from: dateString)
+        }
     }
 }
 

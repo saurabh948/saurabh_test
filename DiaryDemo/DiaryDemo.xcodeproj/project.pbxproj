@@ -42,6 +42,7 @@
 		E3F2755225020EC3008512DC /* SFUIText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2754625020EC3008512DC /* SFUIText-RegularItalic.ttf */; };
 		E3F275542502107A008512DC /* DiaryDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F275532502107A008512DC /* DiaryDataView.swift */; };
 		E3F2755625021084008512DC /* DiaryDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F2755525021084008512DC /* DiaryDataView.xib */; };
+		E3F2755825022BEA008512DC /* DiaryWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2755725022BEA008512DC /* DiaryWrappers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		E3F2754625020EC3008512DC /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
 		E3F275532502107A008512DC /* DiaryDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataView.swift; sourceTree = "<group>"; };
 		E3F2755525021084008512DC /* DiaryDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryDataView.xib; sourceTree = "<group>"; };
+		E3F2755725022BEA008512DC /* DiaryWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryWrappers.swift; sourceTree = "<group>"; };
 		E8372BA79C2983B06B574208 /* Pods-DiaryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryDemo.debug.xcconfig"; path = "Target Support Files/Pods-DiaryDemo/Pods-DiaryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F2752E2501FE99008512DC /* DiaryData.swift */,
+				E3F2755725022BEA008512DC /* DiaryWrappers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				E3F2750B2501F71C008512DC /* DiaryDemo.xcdatamodeld in Sources */,
 				E3F275052501F71C008512DC /* ViewController.swift in Sources */,
 				E3F27534250203F1008512DC /* Environment.swift in Sources */,
+				E3F2755825022BEA008512DC /* DiaryWrappers.swift in Sources */,
 				E3F2751D2501F99D008512DC /* WebError.swift in Sources */,
 				E3F2751B2501F97C008512DC /* Webservice.swift in Sources */,
 				E3F2752F2501FE99008512DC /* DiaryData.swift in Sources */,
@@ -460,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -514,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -3,37 +3,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum DiaryType {
-    case today
-    case yesterday
-    case old
-    
-    func dayDifference(from date : Date) -> DiaryType {
-        let calendar = Calendar.current
-        let startOfNow = calendar.startOfDay(for: Date())
-        let startOfTimeStamp = calendar.startOfDay(for: date)
-        let components = calendar.dateComponents([.day], from: startOfTimeStamp, to: startOfNow)
-        let day = components.day ?? 0
-        
-        if abs(day) < 1 {
-            return .today
-            
-        } else if day == 1 {
-            return .yesterday
-            
-        } else {
-            return .old
-        }
-    }
-}
-
 final class DiaryListViewModel: BaseViewModel {
     
     ///`State`
     var state = PublishSubject<ViewModelState<DiaryListViewModel>>()
     
     //MARK: - Variables
-    var diaryList =  BehaviorRelay<[DiaryData]>(value: [])
+    private var diaryList   =  [DiaryData]()
+    var formatedDiaryList   =  BehaviorRelay<[DiaryGroup]>(value: [])
     
     //MARK: - API Call
     func getDiaryList() {
@@ -47,7 +24,8 @@ final class DiaryListViewModel: BaseViewModel {
                 
                 if diaryResponse.count > 0 {
                     //print(diaryResponse)
-                    self.diaryList.accept(diaryResponse)
+                    self.diaryList = diaryResponse
+                    self.formatDiaryData(diaryResponse)
                     self.state.onNext(.success(self))
                     
                 } else {
@@ -64,5 +42,68 @@ final class DiaryListViewModel: BaseViewModel {
                     self.state.onNext(.finish(false))
                     
             }).disposed(by: disposeBag)
+    }
+    
+}
+
+//MARK: - Helper Methods
+extension DiaryListViewModel {
+    private func formatDiaryData(_ diaryArray : [DiaryData]) {
+        let diaryDataArray = diaryArray.filter({ $0.date != nil }).sorted(by: { $0.date!.compare($1.date!) == .orderedDescending })
+        
+        var todayData       = [DiaryData]()
+        var yesterdayData   = [DiaryData]()
+        var oldData         = [DiaryGroup]()
+        
+        for diaryObj in diaryDataArray {
+            if let date = diaryObj.date {
+                let diaryType = getType(from : date)
+                switch diaryType {
+                case .today:
+                    todayData.append(diaryObj)
+                case .yesterday:
+                    yesterdayData.append(diaryObj)
+                    
+                case .old:
+                    let months = oldData.map({ $0.type.title })
+                    let index = months.firstIndex(of: diaryType.title)
+                    if index == nil {
+                        oldData.append(DiaryGroup(type: diaryType, diaryList: [diaryObj]))
+                    } else {
+                        oldData[index!].diaryList.append(diaryObj)
+                    }
+                }
+            }
+        }
+        var formatedArray = [DiaryGroup]()
+        if todayData.count > 0 {
+            formatedArray.append(DiaryGroup(type: .today, diaryList: todayData))
+        }
+        if yesterdayData.count > 0 {
+            formatedArray.append(DiaryGroup(type: .yesterday, diaryList: yesterdayData))
+        }
+        if oldData.count > 0 {
+            formatedArray += oldData
+        }
+        formatedDiaryList.accept(formatedArray)
+    }
+    
+    private func getType(from date : Date) -> DiaryType {
+        let calendar = Calendar.current
+        let startOfNow = calendar.startOfDay(for: Date())
+        let startOfTimeStamp = calendar.startOfDay(for: date)
+        let components = calendar.dateComponents([.day], from: startOfTimeStamp, to: startOfNow)
+        let day = components.day ?? 0
+        
+        if abs(day) < 1 {
+            return .today
+            
+        } else if day == 1 {
+            return .yesterday
+            
+        } else {
+            let month = DateManager.monthInitial.string(from: date)
+            return .old(month)
+        }
     }
 }

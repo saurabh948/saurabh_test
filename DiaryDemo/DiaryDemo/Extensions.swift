@@ -84,12 +84,23 @@ extension UIView {
     }
     
     ///`Add Shadow`
-    func dropShadow() {
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
-        layer.shadowOpacity = 1.0
-        layer.shadowOffset =  CGSize(width: 0.0, height: 4.0)
-        layer.shadowRadius = 2.0
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+      layer.masksToBounds = false
+      layer.shadowColor = color.cgColor
+      layer.shadowOpacity = opacity
+      layer.shadowOffset = offSet
+      layer.shadowRadius = radius
+
+      layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+      layer.shouldRasterize = true
+      layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
+    func getXIB<T:UIView>(type:T.Type) -> T {
+        guard let XIB = Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: [:])?.first as? T else {
+            fatalError(String(describing: T.self) + "\(NSLocalizedString("couldn't be found in Storyboard file", comment: ""))")
+        }
+        return XIB
     }
 }
 
@@ -98,10 +109,12 @@ let DateManager = DateFormatter.AppDateFormatters()
 extension DateFormatter {
     struct AppDateFormatters {
         let dateStyleServerDate = DateFormats.getDateFormatter(dateFormat: .dateStyleServerDate)
+        let monthInitial        = DateFormats.getDateFormatter(dateFormat: .monthInitial)
     }
     
     private enum DateFormats : String {
-        case dateStyleServerDate = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case dateStyleServerDate    = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case monthInitial           = "MMM-yyyy"
         
         static func dateFormat(dateFormatter: DateFormats)-> String{
             return dateFormatter.rawValue
@@ -114,6 +127,23 @@ extension DateFormatter {
             dateFormatter.dateFormat = dateFormat.rawValue
             if isUtc { dateFormatter.timeZone = TimeZone(abbreviation: "UTC") }
             return dateFormatter;
+        }
+    }
+}
+
+//MARK: - UIStackView
+extension UIStackView {
+    
+    func addArrangedSubviews(_ views: [UIView]) {
+        for view in views {
+            addArrangedSubview(view)
+        }
+    }
+    
+    func removeArrangedSubviews() {
+        for view in arrangedSubviews {
+            view.removeFromSuperview()
+            //removeArrangedSubview(view)
         }
     }
 }
