@@ -11,4 +11,5 @@ target 'DiaryDemo' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'SVProgressHUD'
+  pod 'AppCenter'
 end

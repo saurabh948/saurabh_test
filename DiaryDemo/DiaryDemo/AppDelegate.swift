@@ -2,6 +2,9 @@
 import UIKit
 import SVProgressHUD
 import CoreData
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
+        MSAppCenter.start("0292e315-4c5c-44cc-b645-a08a3c53b8a4", withServices:[
+          MSAnalytics.self,
+          MSCrashes.self
+        ])
         return true
     }
     

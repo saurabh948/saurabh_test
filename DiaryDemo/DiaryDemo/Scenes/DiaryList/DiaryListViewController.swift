@@ -1,5 +1,7 @@
 
 import UIKit
+import AppCenter
+import AppCenterCrashes
 
 final class DiaryListViewController: BaseViewController {
     
@@ -15,6 +17,9 @@ final class DiaryListViewController: BaseViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        MSAppCenter.start("0292e315-4c5c-44cc-b645-a08a3c53b8a4", withServices:[
+            MSCrashes.self
+        ])
         handleTableData()
         prepareAPICall()
         viewModel.fetchDataFromDB()
